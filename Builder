@@ -18,19 +18,9 @@ tar -xvJf CyanogenMod-cm-11.0-no-repo-20160907.tar.xz &> /dev/null
 cd CyanogenMod-cm-11.0-no-repo-20160907
 repo sync -l &> /dev/null
 # Download Device Tree
-git clone -b cm-11.0 --single-branch https://github.com/Nokia-xl-legacy/android_kernel_nokia_msm8625.git kernel/nokia/normandy &> /dev/null
-git clone https://github.com/Nokia-xl-legacy/device_xl.git device/nokia/xl &> /dev/null 
-git clone https://github.com/Nokia-xl-legacy/vendor_xl.git vendor/nokia &> /dev/null 
-rm -rf bootable/recovery && git clone -b android-5.1 --single-branch https://github.com/omnirom/android_bootable_recovery.git bootable/recovery &> /dev/null
-rm -rf hardware/ril && git clone -b cm-11.0 --single-branch https://github.com/Nokia-xl-legacy/hardware_ril.git hardware/ril &> /dev/null
-rm -rf hardware/qcom/gps && git clone https://github.com/Nokia-xl-legacy/android_hardware_qcom_gps.git hardware/qcom/gps &> /dev/null 
-rm -rf hardware/qcom/media-legacy && git clone -b kitkat --single-branch https://github.com/Nokia-xl-legacy/android_hardware_qcom_media-legacy.git hardware/qcom/media-legacy &> /dev/null 
-rm -rf external/webkit && git clone https://github.com/Nokia-xl-legacy/android_external_webkit.git external/webkit &> /dev/null
-rm -rf hardware/qcom/display-legacy && git clone https://github.com/Nokia-xl-legacy/android_hardware_qcom_display-legacy.git hardware/qcom/display-legacy &> /dev/null
-rm -rf hardware/atheros/wlan && git clone https://github.com/Nokia-xl-legacy/android_hardware_atheros_wlan.git -b cm-11.0 --single-branch hardware/atheros/wlan &> /dev/null
-rm -rf hardware/atheros/wifi && git clone https://github.com/Nokia-xl-legacy/android_hardware_atheros_wifi_ath6kl-huawei.git hardware/atheros/wifi &> /dev/null 
+git clone https://github.com/Rem01Gaming/liquid_kernel_realme_even kernel/realme/even ; cd kernel/realme/even ; git clone https://github.com/KharaMe-devices/vendor_realme_even vendor/realme/even ; git clone https://github.com/Realme-C25-Series-Development/android_packages_apps_RealmeDirac -b lineage-18.1 packages/apps/RealmeDirac ; git clone https://github.com/Realme-C25-Series-Development/android_packages_apps_RealmeParts -b lineage-18.1 packages/apps/RealmeParts ; git clone https://github.com/KharaMe-devices/vendor_realme_even-ims -b eleven-rmui2 vendor/realme/even-ims ; git clone https://github.com/KharaMe-devices/device_realme_even -b eleven-rui2 device/realme/even ; cd device/realme/even
 # Edit device tree
 cd patches && chmod 775 apply.sh && ./apply.sh
 cd ~/android
 . build/envsetup.sh
-brunch xl
+brunch even
